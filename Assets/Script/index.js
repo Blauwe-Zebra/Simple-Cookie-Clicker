@@ -2,7 +2,7 @@
 let Cookies = localStorage.getItem("Cookies");
 let CookieClickWorth = localStorage.getItem("CookieClickWorth");
 let PassiveCursor = localStorage.getItem("PassiveCursor");
-let PassiveCursorPrice;
+let PassiveCursorPrice = localStorage.getItem("PassiveCursorPrice");
 
 // Cookies aanmaken als ze nog nietz bestaan
 if (Cookies == null) {
@@ -100,6 +100,7 @@ function PassiveCursorPriceF() {
   document.getElementById("PassiveCursorPriceP").textContent =
     PassiveCursorPrice + " cookies";
   document.getElementById("PassiveCursorLevel").textContent = PassiveCursor;
+  localStorage.setItem("PassiveCursorPrice", PassiveCursorPrice);
 
   CookiesLog.textContent =
     "Cursor upgrade = " +
@@ -155,5 +156,5 @@ function Message(Message) {
   document.getElementById("Message").style.animation = "normal Message 7s";
   setTimeout(function () {
     document.getElementById("Message").style.animation = "none";
-  }, 7000);
+  }, 6000);
 }
