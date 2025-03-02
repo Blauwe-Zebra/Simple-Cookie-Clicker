@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.container {
+  display: inline-grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  width: 100%;
+  height: 100vh;
+}
+
+.container div {
+  text-align: center;
+  border: 1px solid black;
+}
+
+/* Cookies */
+.Cookie img:active {
+  filter: brightness(1.1);
+  transform: scale(1.01);
+}
+
+.CookiesBottom {
+  display: none;
+  margin: 5px;
+}
+
+.CookiesBottom textarea {
+  resize: none;
+  width: 100%;
+}
+
+/* shop */
+
+/* Upgrade */
+.CurosrUpgrades {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.CurosrUpgrades section {
+  border: 2px dotted black;
+  margin: 1%;
+}
+
+.CurosrUpgrades section:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.CurosrUpgrades img {
+  width: 100%;
+  height: auto;
+}
+
+.CurosrUpgrades .Unlocked {
+  filter: blur(2px);
+  border: 7px solid red;
+}
+
+.CurosrUpgrades .Unlocked:hover {
+  cursor: not-allowed;
+}
+
+/* Passive Upgrades */
+.Upgrades {
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.Upgrades section {
+  font-size: 0.7em;
+  display: grid;
+  border: 1px solid red;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  column-gap: 2rem;
+}
+
+.Upgrades section:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@keyframes AnimationBgUpgrade {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+.Upgrades span {
+  z-index: -10;
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background-image: url(/Assets/Images/Backgrounds/CursorBackground.jpg);
+  background-size: 60%;
+  filter: blur(3px);
+  animation: infinite 10s AnimationBgUpgrade;
+  animation-timing-function: linear;
+}
+
+.Upgrades section:hover > span {
+  background-size: 40%;
+  filter: blur(1px);
+}
+
+.Upgrades section:hover > img {
+  transform: scale(1.1);
+}
+
+.Upgrades section h2 {
+  margin-top: 60%;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  place-content: center;
+  text-align: center;
+}
+
+.Upgrades section img {
+  width: auto;
+  height: 90%;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 1;
+}
+
+.Upgrades section h3 {
+  text-align: left;
+  grid-row-start: 1;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+.Upgrades section p {
+  background-color: black;
+  font-size: 0.7em;
+  text-align: left;
+  grid-row-start: 2;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+/* Reset button */
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: orange;
+  padding: 5px;
+  text-align: center;
+}
+
+footer button {
+  margin-left: 10px;
+  padding: 5px 3px 5px 3px;
+  background-color: red;
+  color: black;
+  border: 1px solid rgb(217, 0, 255);
+}
+
+footer button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: red;
+}
+
+/* Pop-up Message */
+@keyframes Message {
+  0% {
+    opacity: 1;
+    filter: opacity(1);
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%, -50px);
+  }
+  20% {
+    transform: translate(-50%, 50px);
+  }
+  90% {
+    opacity: 1;
+    filter: opacity(1);
+  }
+  100% {
+    filter: opacity(0);
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+}
+
+.Message {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  transform: translateY(-50px);
+  opacity: 0;
+  font-size: 0.8em;
+}
+
+.Message span {
+  top: -10px;
+  position: absolute;
+  background-color: orange;
+  width: 100%;
+  height: 10px;
+}
+
+.Message section {
+  padding: 10px;
+  background-color: rgb(253, 227, 178);
+  border-radius: 0 0 5px 5px;
+}

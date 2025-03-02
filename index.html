@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Assets/Style/index.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="container">
+        <div class="content Cookie">
+          <section class="Cookie">
+            <br />
+            <h4 id="BakeryName">Dirks Bakkerij</h4>
+            <br />
+            <h2 id="CookieCount">0 Cookies</h2>
+            <img
+              src="Assets/Images/Cookie.png"
+              alt="Cookie"
+              loading="eager"
+              width="100%"
+              onclick="CookieClick()"
+            />
+          </section>
+          <section class="CookiesBottom">
+            <textarea
+              name="CookiesLog"
+              id="CookiesLog"
+              rows="4"
+              readonly
+            ></textarea>
+          </section>
+        </div>
+        <div class="content Path"></div>
+        <div class="content Store">
+          <br />
+          <h2>Shop</h2>
+          <br />
+          <section class="CurosrUpgrades">
+            <section onclick="CursorUpgradeClick(1)" id="CursorUpgradeC1">
+              <img src="Assets/Images/CursorX2.jpg" alt="CurosrUpgrade" />
+              <p>100</p>
+            </section>
+            <section onclick="CursorUpgradeClick(2)" id="CursorUpgradeC2">
+              <img src="Assets/Images/CursorX3.jpg" alt="CurosrUpgrade" />
+              <p>200</p>
+            </section>
+            <section onclick="CursorUpgradeClick(3)" id="CursorUpgradeC3">
+              <img src="Assets/Images/CursorX4.jpg" alt="CurosrUpgrade" />
+              <p>500</p>
+            </section>
+            <section onclick="CursorUpgradeClick(4)" id="CursorUpgradeC4">
+              <img src="Assets/Images/CursorX5.jpg" alt="CurosrUpgrade" />
+              <p>1&nbsp;000</p>
+            </section>
+          </section>
+          <br />
+          <section class="Upgrades">
+            <section onclick="PassiveCursorUpgrade()">
+              <h2>1</h2>
+              <img src="Assets/Images/CursorPointer.png" />
+              <h3>Cursor</h3>
+              <p id="PassiveCursorPriceP">100 cookies</p>
+              <span class="bg"></span>
+            </section>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Reset game:</p>
+      <button onclick="Reset()">Reset</button>
+    </footer>
+    <!-- Pop-up Message -->
+    <div class="Message" id="Message">
+      <span></span>
+      <section>
+        <h2 id="MessageHead"></h2>
+        <p id="MessageDescription"></p>
+      </section>
+    </div>
+    <script src="Assets/Script/index.js"></script>
+    <script src="Assets/Script/Clock.js"></script>
+  </body>
+</html>
