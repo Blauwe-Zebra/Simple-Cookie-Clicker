@@ -91,10 +91,22 @@ function PassiveCursorPriceF() {
   } else if (PassiveCursor == 1) {
     PassiveCursorPrice = 200;
   } else if (PassiveCursor == 2) {
-    PassiveCursorPrice == 500;
+    PassiveCursorPrice = 500;
+  } else if (PassiveCursor == 3) {
+    PassiveCursorPrice = 1000;
+  } else {
+    PassiveCursorPrice = parseInt(PassiveCursorPrice) * 2;
   }
   document.getElementById("PassiveCursorPriceP").textContent =
     PassiveCursorPrice + " cookies";
+  document.getElementById("PassiveCursorLevel").textContent = PassiveCursor;
+
+  CookiesLog.textContent =
+    "Cursor upgrade = " +
+    PassiveCursor +
+    "\nYou get " +
+    PassiveCursor +
+    " Cookies every second";
 }
 
 PassiveCursorPriceAfford();
@@ -111,8 +123,8 @@ function PassiveCursorUpgrade() {
     Cookies = Cookies - PassiveCursorPrice;
     PassiveCursor++;
     localStorage.setItem("PassiveCursor", PassiveCursor);
+    CookieUpdate();
     PassiveCursorPriceF();
-    PassiveCursorPriceAfford();
   } else {
     Message("Niet genoeg geld");
   }

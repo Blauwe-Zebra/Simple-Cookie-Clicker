@@ -4,7 +4,7 @@ Clock();
 function Clock() {
   seconds++;
 
-  if (seconds == 3) {
+  if (seconds == 1) {
     ThreeSeconds();
     seconds = 0;
   }
