@@ -83,6 +83,40 @@ function CursorUpgradeClick(CursorUpgradeClick) {
   CookieUpdate();
 }
 
+// Funtie om een cursorupgrade item te genereren
+function createCursorUpgrade() {
+  let NewItem = 1;
+  const section = document.createElement("section");
+  section.id = "CursorUpgradeC4";
+  section.onclick = function () {
+    CursorUpgradeClick(parseInt(CookieClickWorth) + NewItem);
+  };
+
+  const img = document.createElement("img");
+  img.src = "Assets/Images/Cursor.jpg";
+  img.alt = "CursorUpgrade" + (parseInt(CookieClickWorth) + 1);
+
+  const p = document.createElement("p");
+  p.innerHTML = "2&nbsp;000";
+
+  const span = document.createElement("span");
+  span.textContent = "x" + (parseInt(CookieClickWorth) + 1);
+
+  section.appendChild(img);
+  section.appendChild(p);
+  section.appendChild(span);
+
+  document.getElementById("CursorUpgrade").appendChild(section); // Voeg toe aan de body of een specifieke container
+}
+
+// funtie om cursorupgrade item te removen
+function removeCursorUpgrade() {
+  const section = document.getElementById("CursorUpgradeC4");
+  if (section) {
+    section.remove();
+  }
+}
+
 // Passive cursor upgrade
 PassiveCursorPriceF();
 function PassiveCursorPriceF() {
