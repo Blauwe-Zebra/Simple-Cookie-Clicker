@@ -68,7 +68,7 @@ body {
   z-index: -2;
   position: absolute;
   left: 50%;
-  bottom: 5%;
+  bottom: 0;
   transform: translate(-50%, -50%);
   resize: none;
   width: 95%;
@@ -82,6 +82,8 @@ body {
   border-collapse: collapse;
   text-align: center;
   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
   width: 100%;
   height: auto;
 }
@@ -89,6 +91,7 @@ body {
 .CurosrUpgrades section {
   border: 2px dotted black;
   margin: 1%;
+  position: relative;
 }
 
 .CurosrUpgrades section:hover {
@@ -100,6 +103,19 @@ body {
 .CurosrUpgrades img {
   width: 100%;
   height: auto;
+}
+
+.CurosrUpgrades span {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.CurosrUpgrades p {
+  font-size: 0.9rem;
 }
 
 .CurosrUpgrades .Unlocked {
