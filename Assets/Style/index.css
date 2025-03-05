@@ -108,8 +108,8 @@ body {
 .CurosrUpgrades span {
   text-align: center;
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 55%;
+  top: 45%;
   font-size: 40%;
   transform: translate(-50%, -50%);
 }
