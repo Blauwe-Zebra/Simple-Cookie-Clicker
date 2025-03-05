@@ -164,6 +164,10 @@ body {
   transform: scale(1.1);
 }
 
+.Upgrades section {
+  width: 100%;
+}
+
 .Upgrades section h2 {
   margin-top: 60%;
   grid-row-start: 1;

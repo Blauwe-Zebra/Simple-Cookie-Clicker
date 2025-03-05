@@ -87,15 +87,15 @@ function CursorUpgradeClick(CursorUpgradeClick) {
 PassiveCursorPriceF();
 function PassiveCursorPriceF() {
   if (PassiveCursor == 0) {
-    PassiveCursorPrice = 100;
+    PassiveCursorPrice = 30;
   } else if (PassiveCursor == 1) {
-    PassiveCursorPrice = 200;
+    PassiveCursorPrice = 50;
   } else if (PassiveCursor == 2) {
-    PassiveCursorPrice = 500;
+    PassiveCursorPrice = 100;
   } else if (PassiveCursor == 3) {
-    PassiveCursorPrice = 1000;
+    PassiveCursorPrice = 200;
   } else {
-    PassiveCursorPrice = parseInt(PassiveCursorPrice) * 2;
+    PassiveCursorPrice = parseInt(PassiveCursor * 100);
   }
   document.getElementById("PassiveCursorPriceP").textContent =
     PassiveCursorPrice + " cookies";
