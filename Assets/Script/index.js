@@ -34,6 +34,40 @@ function CookieUpdate() {
   PassiveCursorPriceAfford();
 }
 
+// Funtie om een cursorupgrade item te genereren bij start
+CreateCursorUpgradeBegin();
+function CreateCursorUpgradeBegin() {
+  const container = document.getElementById("CursorUpgrade");
+  if (!container) {
+    console.error("Element met ID 'CursorUpgrade' niet gevonden.");
+    return;
+  }
+
+  for (let TellerCUP = 1; TellerCUP < CookieClickWorth; TellerCUP++) {
+    const section = document.createElement("section");
+    section.id = "CursorUpgradeC" + TellerCUP;
+
+    section.onclick = ((index) => () => {
+      CursorUpgradeClick(index);
+      console.log(index);
+    })(TellerCUP); // Sluitingsprobleem opgelost
+
+    const img = document.createElement("img");
+    img.src = "Assets/Images/Cursor.jpg";
+    img.alt = "CursorUpgrade";
+
+    const p = document.createElement("p");
+    const prijzen = [100, 200, 500, 1000]; // Voeg hier extra prijzen toe indien nodig
+    p.innerHTML = TellerCUP <= prijzen.length ? prijzen[TellerCUP - 1] : "???";
+
+    const span = document.createElement("span");
+    span.textContent = "x" + (TellerCUP + 1);
+
+    section.append(img, p, span);
+    container.appendChild(section);
+  }
+}
+
 // Functie om knoppen inactief te maken als gekocht
 CursorUpgradeClickInactive();
 function CursorUpgradeClickInactive() {
@@ -81,44 +115,6 @@ function CursorUpgradeClick(CursorUpgradeClick) {
   localStorage.setItem("CookieClickWorth", CookieClickWorth);
   CursorUpgradeClickInactive();
   CookieUpdate();
-}
-
-CreateCursorUpgradeBegin();
-function CreateCursorUpgradeBegin() {
-  for (TellerCUP = 1; TellerCUP < CookieClickWorth; TellerCUP++) {
-    const section = document.createElement("section");
-    section.id = "CursorUpgradeC" + TellerCUP;
-    section.onclick = function () {
-      CursorUpgradeClick(TellerCUP);
-    };
-
-    const img = document.createElement("img");
-    img.src = "Assets/Images/Cursor.jpg";
-    img.alt = "CursorUpgrade";
-
-    const p = document.createElement("p");
-
-    if (TellerCUP == 1) {
-      p.innerHTML = "100";
-    } else if (TellerCUP == 2) {
-      p.innerHTML = "200";
-    } else if (TellerCUP == 3) {
-      p.innerHTML = "500";
-    } else if (TellerCUP == 4) {
-      p.innerHTML = "1&nbsp;000";
-    } else {
-      // Als er nog worden bijgemaakt...
-    }
-
-    const span = document.createElement("span");
-    span.textContent = "x" + (parseInt(TellerCUP) + 1);
-
-    section.appendChild(img);
-    section.appendChild(p);
-    section.appendChild(span);
-
-    document.getElementById("CursorUpgrade").appendChild(section); // Voeg toe aan de body of een specifieke container
-  }
 }
 
 // Funtie om een cursorupgrade item te genereren
