@@ -83,6 +83,44 @@ function CursorUpgradeClick(CursorUpgradeClick) {
   CookieUpdate();
 }
 
+CreateCursorUpgradeBegin();
+function CreateCursorUpgradeBegin() {
+  for (TellerCUP = 1; TellerCUP < CookieClickWorth; TellerCUP++) {
+    const section = document.createElement("section");
+    section.id = "CursorUpgradeC" + TellerCUP;
+    section.onclick = function () {
+      CursorUpgradeClick(TellerCUP);
+    };
+
+    const img = document.createElement("img");
+    img.src = "Assets/Images/Cursor.jpg";
+    img.alt = "CursorUpgrade";
+
+    const p = document.createElement("p");
+
+    if (TellerCUP == 1) {
+      p.innerHTML = "100";
+    } else if (TellerCUP == 2) {
+      p.innerHTML = "200";
+    } else if (TellerCUP == 3) {
+      p.innerHTML = "500";
+    } else if (TellerCUP == 4) {
+      p.innerHTML = "1&nbsp;000";
+    } else {
+      // Als er nog worden bijgemaakt...
+    }
+
+    const span = document.createElement("span");
+    span.textContent = "x" + (parseInt(TellerCUP) + 1);
+
+    section.appendChild(img);
+    section.appendChild(p);
+    section.appendChild(span);
+
+    document.getElementById("CursorUpgrade").appendChild(section); // Voeg toe aan de body of een specifieke container
+  }
+}
+
 // Funtie om een cursorupgrade item te genereren
 function createCursorUpgrade() {
   let NewItem = 1;
