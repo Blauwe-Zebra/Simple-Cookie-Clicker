@@ -126,23 +126,22 @@ function removeCursorUpgrade(CursorUpgradeClickR) {
 }
 
 // Funtie om een cursorupgrade item te genereren
-function createCursorUpgrade() {
-  let NewItem = 1;
+function createCursorUpgrade(CursorUpgradeClickR) {
   const section = document.createElement("section");
-  section.id = "CursorUpgradeC4";
+  section.id = "CursorUpgradeC" + CursorUpgradeClickR;
   section.onclick = function () {
-    CursorUpgradeClick(parseInt(CookieClickWorth) + NewItem);
+    CursorUpgradeClick(CursorUpgradeClickR + 4);
   };
 
   const img = document.createElement("img");
   img.src = "Assets/Images/Cursor.jpg";
-  img.alt = "CursorUpgrade" + (parseInt(CookieClickWorth) + 1);
+  img.alt = "CursorUpgrade" + (CursorUpgradeClickR + 4);
 
   const p = document.createElement("p");
   p.innerHTML = "2&nbsp;000";
 
   const span = document.createElement("span");
-  span.textContent = "x" + (parseInt(CookieClickWorth) + 1);
+  span.textContent = "x" + (CursorUpgradeClickR + 4);
 
   section.appendChild(img);
   section.appendChild(p);
