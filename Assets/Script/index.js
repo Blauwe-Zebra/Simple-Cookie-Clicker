@@ -38,12 +38,8 @@ function CookieUpdate() {
 CreateCursorUpgradeBegin();
 function CreateCursorUpgradeBegin() {
   const container = document.getElementById("CursorUpgrade");
-  if (!container) {
-    console.error("Element met ID 'CursorUpgrade' niet gevonden.");
-    return;
-  }
 
-  for (let TellerCUP = 1; TellerCUP < CookieClickWorth; TellerCUP++) {
+  for (let TellerCUP = 1; TellerCUP <= 4; TellerCUP++) {
     const section = document.createElement("section");
     section.id = "CursorUpgradeC" + TellerCUP;
 
@@ -85,6 +81,7 @@ function CursorUpgradeClick(CursorUpgradeClick) {
     if (Cookies >= 100) {
       Cookies = Cookies - 100;
       CookieClickWorth = 2;
+      removeCursorUpgrade(CursorUpgradeClick);
     } else {
       Message("Niet genoeg geld");
     }
@@ -92,6 +89,7 @@ function CursorUpgradeClick(CursorUpgradeClick) {
     if (Cookies >= 200) {
       Cookies = Cookies - 200;
       CookieClickWorth = 3;
+      removeCursorUpgrade(CursorUpgradeClick);
     } else {
       Message("Niet genoeg geld");
     }
@@ -99,6 +97,7 @@ function CursorUpgradeClick(CursorUpgradeClick) {
     if (Cookies >= 500) {
       Cookies = Cookies - 500;
       CookieClickWorth = 4;
+      removeCursorUpgrade(CursorUpgradeClick);
     } else {
       Message("Niet genoeg geld");
     }
@@ -106,6 +105,7 @@ function CursorUpgradeClick(CursorUpgradeClick) {
     if (Cookies >= 1000) {
       Cookies = Cookies - 1000;
       CookieClickWorth = 5;
+      removeCursorUpgrade(CursorUpgradeClick);
     } else {
       Message("Niet genoeg geld");
     }
@@ -115,6 +115,17 @@ function CursorUpgradeClick(CursorUpgradeClick) {
   localStorage.setItem("CookieClickWorth", CookieClickWorth);
   CursorUpgradeClickInactive();
   CookieUpdate();
+}
+
+// funtie om cursorupgrade item te removen
+function removeCursorUpgrade(CursorUpgradeClickR) {
+  const section = document.getElementById(
+    "CursorUpgradeC" + CursorUpgradeClickR
+  );
+  if (section) {
+    section.remove();
+    createCursorUpgrade(CursorUpgradeClickR + 1);
+  }
 }
 
 // Funtie om een cursorupgrade item te genereren
@@ -141,14 +152,6 @@ function createCursorUpgrade() {
   section.appendChild(span);
 
   document.getElementById("CursorUpgrade").appendChild(section); // Voeg toe aan de body of een specifieke container
-}
-
-// funtie om cursorupgrade item te removen
-function removeCursorUpgrade() {
-  const section = document.getElementById("CursorUpgradeC4");
-  if (section) {
-    section.remove();
-  }
 }
 
 // Passive cursor upgrade
