@@ -68,10 +68,7 @@ function CreateCursorUpgradeBegin() {
 CursorUpgradeClickInactive();
 function CursorUpgradeClickInactive() {
   for (let i = 1; i <= CookieClickWorth - 1; i++) {
-    document.getElementById("CursorUpgradeC" + i).classList.add("Unlocked");
-    document.getElementById("CursorUpgradeC" + i).onclick =
-      "Message('Uw heeft deze upgrade al!')";
-    console.log(i);
+    removeCursorUpgrade(i);
   }
 }
 
