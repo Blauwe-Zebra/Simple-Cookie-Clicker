@@ -128,7 +128,7 @@ function removeCursorUpgrade(CursorUpgradeClickR) {
 // Funtie om een cursorupgrade item te genereren
 function createCursorUpgrade(CursorUpgradeClickR) {
   const section = document.createElement("section");
-  section.id = "CursorUpgradeC" + CursorUpgradeClickR;
+  section.id = "CursorUpgradeC" + CursorUpgradeClickR + 5;
   section.onclick = function () {
     CursorUpgradeClick(CursorUpgradeClickR + 4);
   };
